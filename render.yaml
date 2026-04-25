@@ -1,0 +1,18 @@
+services:
+  - type: worker
+    name: kavus-master
+    env: python
+    plan: starter
+    buildCommand: pip install -r requirements.txt
+    startCommand: python -m src.bot
+    envVars:
+      - key: DERIV_TOKEN
+        sync: false
+      - key: TELEGRAM_TOKEN
+        sync: false
+      - key: TELEGRAM_CHAT_ID
+        sync: false
+      - key: RISK_PCT
+        value: "0.3"
+      - key: MAX_POSITIONS
+        value: "5"
